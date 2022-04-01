@@ -1,11 +1,30 @@
 package pucpr.br.exemplo.veiculo.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "VEICULO")
 public class Veiculo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(name = "MARCA", nullable = false)
     private String marca;
+
+    @Column(name = "MODELO", nullable = false)
     private String modelo;
+
+    @Column(name = "PLACA", unique = true, nullable = false)
     private String placa;
+
+    @Column(name = "RENAVAM", unique = true, nullable = false)
     private String renavam;
 
     public Integer getId() {
